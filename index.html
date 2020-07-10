@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Shortest Path Finder</title>
+      <style>
+         td{
+         width:30px;
+         height:30px;
+         }
+         p{
+         display: inline-block;
+         
+         }
+        
+         
+
+      </style>
+      <script type="text/javascript" src="./js/bfs.js"></script>
+      <script type="text/javascript" src="./js/bfsnodiag.js"></script>
+      <script type="text/javascript" src="./js/common.js"></script>
+      <script type="text/javascript">
+         function getMatrix(num){
+         	
+         	var myTable = document.getElementById('matrix');
+         	
+         	var count = num;
+         	
+         	for(var i=0;i<count;i++){
+         	
+         		var tr = document.createElement('tr');
+         		
+         		for(var j=0;j<count;j++){
+         			
+         			var td = document.createElement('td');
+         			
+                     td.id=i+'x'+j  
+                   
+                     td.onclick= function(){
+                         setPoints(this)
+                     }
+                      tr.appendChild(td);
+         		}
+         		
+         		myTable.appendChild(tr);
+             }
+             var sp="s",ep="e";var ob=[];
+            function setPoints(points)
+            {
+                if(sp=="s"  && points.id!=ep){
+                     sp=points.id;
+                     document.getElementById('sp').innerHTML=sp;
+                     points.style.background="green " ;
+                 
+                 }
+                 else if(points.id==sp)
+                 {
+                     sp="s"
+                     points.style.backgroundColor="white"
+                 }
+                 else if(ep=="e"&&points.id!=sp)
+                 {
+                     ep=points.id;
+                     document.getElementById('ep').innerHTML=ep;
+                     points.style.backgroundColor="red";
+                 }
+                 else if(points.id==ep)
+                 {
+                     ep="e"
+                     points.style.backgroundColor="white"
+         
+                 }
+                 
+                 else if(ob.includes(points.id))
+                 {
+                     points.style.backgroundColor="white"
+                     ob.splice(ob.indexOf(points.id),1)
+                     document.getElementById('ob').innerHTML=ob;
+         
+                 }
+         
+                 else  {
+                     ob.push(points.id);
+                     document.getElementById('ob').innerHTML=ob;
+                     points.style.backgroundColor="grey";
+                     
+                 }
+         
+         
+         
+            }
+         
+         }
+          
+      </script>
+   </head>
+   <body onload="getMatrix(25)">
+      <table id="matrix" cellspacing=0 border=1>
+      </table>
+      <div id="info">
+         The start point is 
+         <p id="sp"></p>
+         <br>
+         The end point is 
+         <p id="ep"></p>
+         <br>
+         The obstacles are 
+         <p id="ob"></p>
+         <br>
+         <button id="bfs">BFS</button>
+         <button id="bfswod">BFS (no diagonal)</button><br>
+
+         <script>
+            var bfs = document.getElementById('bfs');
+            var bfswod = document.getElementById('bfswod');
+            var path=[]
+            
+            bfs.onclick=function(){
+            
+                for (i=1;i<path.length-1;i++)
+            {
+            if((document.getElementById(path[i]).style.backgroundColor=="yellow"))
+            {
+            document.getElementById(path[i]).style.background="white"
+            }
+            }
+                
+                 path = breadth();
+                path.reverse()
+                for (i=1;i<path.length-1;i++)
+            {
+            document.getElementById(path[i]).style.background="yellow"
+            }
+            document.getElementById('paths').innerHTML=path;
+            
+            
+            }
+
+            bfswod.onclick=function(){
+            
+            for (i=1;i<path.length-1;i++)
+        {
+        if((document.getElementById(path[i]).style.backgroundColor=="yellow"))
+        {
+        document.getElementById(path[i]).style.background="white"
+        }
+        }
+            
+             path = breadthwod();
+            path.reverse()
+            for (i=1;i<path.length-1;i++)
+        {
+        document.getElementById(path[i]).style.background="yellow"
+        }
+        document.getElementById('paths').innerHTML=path;
+        
+        
+        }
+            
+            
+            
+         </script>
+         The path is 
+         <p id="paths"></p>
+      </div>
+   </body>
+</html>
