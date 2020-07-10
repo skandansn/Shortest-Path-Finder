@@ -3,19 +3,28 @@
    <head>
       <title>Shortest Path Finder</title>
       <style>
+          html{
+              font-family: 'Times New Roman', Times, serif;
+              font-size: large;
+              display: inline-block;
+          }
          td{
          width:30px;
          height:30px;
          }
          p{
          display: inline-block;
-         
          }
-        
+        #matrix{
+            float: left;
+            
+        }
+
          
 
       </style>
       <script type="text/javascript" src="./js/bfs.js"></script>
+      <script type="text/javascript" src="./js/try.js"></script>
       <script type="text/javascript" src="./js/bfsnodiag.js"></script>
       <script type="text/javascript" src="./js/common.js"></script>
       <script type="text/javascript">
@@ -46,6 +55,7 @@
              var sp="s",ep="e";var ob=[];
             function setPoints(points)
             {
+                
                 if(sp=="s"  && points.id!=ep){
                      sp=points.id;
                      document.getElementById('sp').innerHTML=sp;
@@ -94,7 +104,7 @@
       </script>
    </head>
    <body onload="getMatrix(25)">
-      <table id="matrix" cellspacing=0 border=1>
+      <table id="matrix" style="overflow-x:auto;" cellspacing=0 border=1>
       </table>
       <div id="info">
          The start point is 
@@ -106,8 +116,8 @@
          The obstacles are 
          <p id="ob"></p>
          <br>
-         <button id="bfs">BFS</button>
-         <button id="bfswod">BFS (no diagonal)</button><br>
+         <button class="buttons" id="bfs">BFS</button>
+         <button class="buttons" id="bfswod">BFS (no diagonal)</button><br>
 
          <script>
             var bfs = document.getElementById('bfs');

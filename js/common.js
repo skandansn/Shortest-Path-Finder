@@ -4,6 +4,7 @@ function getInfo() {
 }
 function tracePath(ep, list) {
 	var fl = [ep]
+	console.log(fl)
 	currNode = ep
 	while (currNode != sp.textContent) {
 		currNode = list[currNode]

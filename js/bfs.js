@@ -7,7 +7,7 @@ function algobfs(info) {
 
 	var obj = new Object()
 	var seen = []
-	var obs = info
+	var obs = info.split(',');
 	var list = []
 	list.push(sp.textContent)
 
@@ -75,10 +75,12 @@ function getNeighbors(node) {
 }
 
 function breadth() {
+	
 	var info = getInfo()
 	var path = algobfs(info)
 	console.log(path)
 	return path
+	a()
 
 
 }

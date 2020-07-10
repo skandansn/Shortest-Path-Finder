@@ -4,7 +4,7 @@ function algowod(info) {
 
 	var obj = new Object()
 	var seen = []
-	var obs = info
+	var obs = info.split(',');
 	var list = []
 	list.push(sp.textContent)
 
