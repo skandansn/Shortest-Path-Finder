@@ -1,5 +1,6 @@
 function getInfo() {
-	var obs = ob.textContent
+	var obs = obh.textContent
+	console.log(obs)
 	return obs
 }
 function tracePath(ep, list) {

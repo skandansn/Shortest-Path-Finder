@@ -84,13 +84,13 @@
                  {
                      points.style.backgroundColor="white"
                      ob.splice(ob.indexOf(points.id),1)
-                     document.getElementById('ob').innerHTML=ob+" Size: "+ob.length;
+                     document.getElementById('obh').innerHTML=ob;
          
                  }
          
                  else  {
                      ob.push(points.id);
-                     document.getElementById('ob').innerHTML=ob+" Size: "+ob.length;
+                     document.getElementById('obh').innerHTML=ob;
                      points.style.backgroundColor="grey";
                      
                  }
@@ -114,7 +114,7 @@
          <p id="ep"></p>
          <br>
          The obstacles are 
-         <p id="ob"></p>
+         <p id="obh"></p>
          <br>
          <button class="buttons" id="bfs">BFS</button>
          <button class="buttons" id="bfswod">BFS (no diagonal)</button><br>
@@ -140,7 +140,7 @@
             {
             document.getElementById(path[i]).style.background="yellow"
             }
-            document.getElementById('paths').innerHTML=path+" Size: "+path.length;
+            document.getElementById('paths').innerHTML=path+" Size: "+(path.length-2);
             
             
             }
@@ -161,7 +161,7 @@
         {
         document.getElementById(path[i]).style.background="yellow"
         }
-        document.getElementById('paths').innerHTML=path+" Size: "+path.length;
+        document.getElementById('paths').innerHTML=path+" Size: "+(path.length-2);
         
         
         }
