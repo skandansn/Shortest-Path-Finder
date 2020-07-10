@@ -80,7 +80,7 @@ function breadth() {
 	var path = algobfs(info)
 	console.log(path)
 	return path
-	a()
+	//a()
 
 
 }

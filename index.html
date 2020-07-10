@@ -84,13 +84,13 @@
                  {
                      points.style.backgroundColor="white"
                      ob.splice(ob.indexOf(points.id),1)
-                     document.getElementById('ob').innerHTML=ob;
+                     document.getElementById('ob').innerHTML=ob+" Size: "+ob.length;
          
                  }
          
                  else  {
                      ob.push(points.id);
-                     document.getElementById('ob').innerHTML=ob;
+                     document.getElementById('ob').innerHTML=ob+" Size: "+ob.length;
                      points.style.backgroundColor="grey";
                      
                  }
@@ -140,7 +140,7 @@
             {
             document.getElementById(path[i]).style.background="yellow"
             }
-            document.getElementById('paths').innerHTML=path;
+            document.getElementById('paths').innerHTML=path+" Size: "+path.length;
             
             
             }
@@ -161,7 +161,7 @@
         {
         document.getElementById(path[i]).style.background="yellow"
         }
-        document.getElementById('paths').innerHTML=path;
+        document.getElementById('paths').innerHTML=path+" Size: "+path.length;
         
         
         }
